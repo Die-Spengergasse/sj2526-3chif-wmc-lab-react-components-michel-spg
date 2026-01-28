@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import type { Recipe } from "../types/Recipe";
 
 type RecipeCardProps = {
@@ -20,6 +21,13 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
             ))}
           </ul>
         </div>
+        <Link
+          to={`/recipe/$id`}
+          params={{ id: recipe.id.toString() }}
+          className="w-full px-4 py-2 bg-red-500 text-white font-semibold rounded-b-lg hover:bg-red-600 transition-colors text-center block"
+        >
+          Details
+        </Link>
       </div>
     </>
   );
