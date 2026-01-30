@@ -1,12 +1,12 @@
 import { createFileRoute, useParams } from "@tanstack/react-router";
-import { recipes } from "../data/recipes";
+import { recipes } from "../../data/recipes";
 
-export const Route = createFileRoute("/recipe/$id")({
+export const Route = createFileRoute("/recipes/$id")({
   component: RecipeDetail,
 });
 
 function RecipeDetail() {
-  const { id } = useParams({ from: "/recipe/$id" });
+  const { id } = useParams({ from: "/recipes/$id" });
   const recipe = recipes.find((r) => r.id === parseInt(id));
 
   if (!recipe) {

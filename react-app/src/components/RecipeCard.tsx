@@ -6,7 +6,7 @@ type RecipeCardProps = {
 };
 
 export default function RecipeCard({ recipe }: RecipeCardProps) {
-  const { title, imgUrl, description, hints } = recipe;
+  const { id, title, imgUrl, description, hints } = recipe;
 
   return (
     <>
@@ -22,8 +22,8 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
           </ul>
         </div>
         <Link
-          to={`/recipe/$id`}
-          params={{ id: recipe.id.toString() }}
+          to={`/recipes/$id`}
+          params={{ id: id.toString() }}
           className="w-full px-4 py-2 bg-red-500 text-white font-semibold rounded-b-lg hover:bg-red-600 transition-colors text-center block"
         >
           Details

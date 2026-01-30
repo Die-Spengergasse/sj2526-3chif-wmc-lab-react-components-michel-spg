@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Header from "../components/Header";
 import Main from "../components/Main";
 
 export const Route = createFileRoute("/")({
@@ -9,7 +8,6 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
-      <Header />
       <Main />
     </>
   );
