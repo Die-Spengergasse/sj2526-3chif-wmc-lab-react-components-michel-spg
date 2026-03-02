@@ -1,14 +1,33 @@
 import RecipeCard from "../components/RecipeCard";
 import { Link } from "@tanstack/react-router";
-import { recipes } from "../data/recipes";
+import { useState, useEffect } from "react";
+import type { Recipe, RecipesResponse } from "../types/Recipe";
 
-function getRandomRecipes(count: number) {
-  const shuffled = [...recipes].sort(() => Math.random() - 0.5);
+function getRandomRecipes(arr: Recipe[], count: number): Recipe[] {
+  const shuffled = [...arr].sort(() => Math.random() - 0.5);
   return shuffled.slice(0, count);
 }
 
 export default function Main() {
-  const randomRecipes = getRandomRecipes(3);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch("https://dummyjson.com/recipes")
+      .then((res) => {
+        if (!res.ok) throw new Error("Fehler beim Laden der Rezepte");
+        return res.json();
+      })
+      .then((data: RecipesResponse) => {
+        setRecipes(getRandomRecipes(data.recipes, 3));
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <>
@@ -26,9 +45,6 @@ export default function Main() {
             Alle Rezepte entdecken →
           </Link>
         </div>
-        {/* Decorative elements */}
-        <div className="absolute top-4 left-8 text-6xl opacity-20 select-none">🥗</div>
-        <div className="absolute bottom-4 right-8 text-6xl opacity-20 select-none">🍕</div>
       </section>
 
       {/* ZUFÄLLIGE REZEPTE */}
@@ -42,8 +58,16 @@ export default function Main() {
           </p>
         </section>
 
+        {loading && (
+          <p className="text-center text-gray-500 text-lg">Lade Rezepte...</p>
+        )}
+
+        {error && (
+          <p className="text-center text-red-500 text-lg">{error}</p>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {randomRecipes.map((recipe) => (
+          {recipes.map((recipe) => (
             <RecipeCard key={recipe.id} recipe={recipe} />
           ))}
         </div>
