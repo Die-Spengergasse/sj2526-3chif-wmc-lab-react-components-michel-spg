@@ -34,7 +34,7 @@ export default function Main() {
       {/* HERO SECTION */}
       <section className="relative overflow-hidden">
         <div className="max-w-4xl py-10 mx-auto text-center">
-          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto dark:text-black">
             Entdecke leckere Rezepte für jeden Tag - schnell, einfach und mit
             wenigen Zutaten. Lass dich inspirieren!
           </p>
