@@ -16,7 +16,7 @@ function RecipeDetailPage() {
   useEffect(() => {
     fetch(`https://dummyjson.com/recipes/${id}`)
       .then((res) => {
-        if (!res.ok) throw new Error("Rezept nicht gefunden");
+        if (!res.ok) throw new Error("Recipe not found");
         return res.json();
       })
       .then((data: Recipe) => {
@@ -32,7 +32,7 @@ function RecipeDetailPage() {
   if (loading) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-16 text-center">
-        <p className="text-gray-500 text-xl">Lade Rezept...</p>
+        <p className="text-gray-500 text-xl">Loading recipe...</p>
       </div>
     );
   }
@@ -40,12 +40,12 @@ function RecipeDetailPage() {
   if (error || !recipe) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-10 text-center">
-        <p className="text-red-500 text-xl">{error ?? "Rezept nicht gefunden"}</p>
+        <p className="text-red-500 text-xl">{error ?? "Recipe not found"}</p>
         <Link
           to="/recipes"
           className="mt-4 inline-block text-orange-600 hover:underline"
         >
-          ← Zurück zur Übersicht
+          ← Back to Overview
         </Link>
       </div>
     );
@@ -57,7 +57,7 @@ function RecipeDetailPage() {
         to="/recipes"
         className="text-orange-600 hover:underline mb-6 inline-block"
       >
-        ← Zurück zur Übersicht
+        ← Back to Overview
       </Link>
 
       {/* Header */}

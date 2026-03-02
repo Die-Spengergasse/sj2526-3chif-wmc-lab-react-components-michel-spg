@@ -6,7 +6,7 @@ type RecipeCardProps = {
 
 export default function RecipeDetailCard({ recipe }: RecipeCardProps) {
   const totalTime = recipe.prepTimeMinutes + recipe.cookTimeMinutes;
-  
+
   return (
     <>
       {/* Header */}
@@ -31,19 +31,19 @@ export default function RecipeDetailCard({ recipe }: RecipeCardProps) {
           <p className="text-2xl font-bold text-orange-600">
             {recipe.prepTimeMinutes}
           </p>
-          <p className="text-sm text-gray-600">Min. Vorbereitung</p>
+          <p className="text-sm text-gray-600">Min. Preparation</p>
         </div>
         <div className="bg-orange-50 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-orange-600">
             {recipe.cookTimeMinutes}
           </p>
-          <p className="text-sm text-gray-600">Min. Kochen</p>
+          <p className="text-sm text-gray-600">Min. Cooking</p>
         </div>
         <div className="bg-orange-50 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-orange-600">
             {recipe.servings}
           </p>
-          <p className="text-sm text-gray-600">Portionen</p>
+          <p className="text-sm text-gray-600">Portions</p>
         </div>
         <div className="bg-orange-50 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-orange-600">
@@ -77,7 +77,7 @@ export default function RecipeDetailCard({ recipe }: RecipeCardProps) {
         {/* Zutaten */}
         <section>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Zutaten
+            Ingredients
           </h2>
           <ul className="space-y-2">
             {recipe.ingredients.map((ingredient, i) => (
@@ -95,7 +95,7 @@ export default function RecipeDetailCard({ recipe }: RecipeCardProps) {
         {/* Zubereitung */}
         <section>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Zubereitung
+            Preparation
           </h2>
           <ol className="space-y-3">
             {recipe.instructions.map((step, i) => (
@@ -112,7 +112,7 @@ export default function RecipeDetailCard({ recipe }: RecipeCardProps) {
 
       {/* Gesamtzeit Footer */}
       <div className="mt-10 p-4 bg-gray-100 rounded-xl text-center text-gray-600">
-        Gesamtzeit: <strong>{totalTime} Minuten</strong>
+        Total time: <strong>{totalTime} minutes</strong>
       </div>
     </>
   );

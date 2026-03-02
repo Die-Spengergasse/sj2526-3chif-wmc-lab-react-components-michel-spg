@@ -29,7 +29,7 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
         <p className="text-sm text-gray-500 mb-2">{recipe.cuisine}</p>
         <div className="flex items-center justify-between text-sm text-gray-600">
           <span>⏱ {totalTime} Min.</span>
-          <span>{recipe.servings} Portionen</span>
+          <span>{recipe.servings} Portions</span>
           <span>⭐ {recipe.rating}</span>
         </div>
         <div className="flex flex-wrap gap-1 mt-3">

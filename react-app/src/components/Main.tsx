@@ -35,14 +35,14 @@ export default function Main() {
       <section className="relative overflow-hidden">
         <div className="max-w-4xl py-10 mx-auto text-center">
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto dark:text-black">
-            Entdecke leckere Rezepte für jeden Tag - schnell, einfach und mit
-            wenigen Zutaten. Lass dich inspirieren!
+            Discover delicious recipes for every day - quick, easy, and with
+            just a few ingredients. Get inspired!
           </p>
           <Link
             to="/recipes"
             className="inline-block bg-white text-orange-600 font-bold px-8 py-4 rounded-full text-lg shadow-lg hover:bg-yellow-100 hover:scale-105 transition-all duration-200"
           >
-            Alle Rezepte entdecken →
+            Discover all recipes →
           </Link>
         </div>
       </section>
@@ -51,20 +51,18 @@ export default function Main() {
       <main className="max-w-6xl mx-auto px-4 mb-16">
         <section className="mb-6 text-center">
           <h2 className="text-3xl font-bold mb-3 text-gray-900">
-            Unsere Empfehlungen
+            Our Recommendations
           </h2>
           <p className="text-gray-600 text-lg max-w-xl mx-auto">
-            Drei zufällige Rezepte, die du heute ausprobieren könntest.
+            Three random recipes you can try today.
           </p>
         </section>
 
         {loading && (
-          <p className="text-center text-gray-500 text-lg">Lade Rezepte...</p>
+          <p className="text-center text-gray-500 text-lg">Load recipes...</p>
         )}
 
-        {error && (
-          <p className="text-center text-red-500 text-lg">{error}</p>
-        )}
+        {error && <p className="text-center text-red-500 text-lg">{error}</p>}
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {recipes.map((recipe) => (

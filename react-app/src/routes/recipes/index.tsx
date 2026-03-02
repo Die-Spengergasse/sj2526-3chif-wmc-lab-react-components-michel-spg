@@ -15,7 +15,7 @@ function Recipes() {
   useEffect(() => {
     fetch("https://dummyjson.com/recipes?limit=50")
       .then((res) => {
-        if (!res.ok) throw new Error("Fehler beim Laden der Rezepte");
+        if (!res.ok) throw new Error("Error loading recipes");
         return res.json();
       })
       .then((data: RecipesResponse) => {
@@ -31,7 +31,7 @@ function Recipes() {
   if (loading) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-16 text-center">
-        <p className="text-gray-500 text-xl">Lade Rezepte...</p>
+        <p className="text-gray-500 text-xl">Loading recipes...</p>
       </div>
     );
   }
@@ -47,10 +47,10 @@ function Recipes() {
   return (
     <main className="max-w-6xl mx-auto px-4 py-10">
       <h1 className="text-4xl font-bold text-gray-900 mb-2 text-center">
-        🍽 Alle Rezepte
+        🍽 All Recipes
       </h1>
       <p className="text-gray-500 text-center mb-8">
-        {recipes.length} Rezepte gefunden
+        {recipes.length} recipes found. Explore and find your next favorite dish!
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {recipes.map((recipe) => (
