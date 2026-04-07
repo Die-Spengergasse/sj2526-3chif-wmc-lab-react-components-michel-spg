@@ -34,6 +34,12 @@ const RootLayout = () => {
           >
             Recipes
           </Link>
+          <Link
+            to="/recipes/add"
+            className="text-gray-900 font-semibold hover:text-red-500 transition-colors [&.active]:text-red-500 [&.active]:border-b-2 [&.active]:border-red-500 [&.active]:pb-1"
+          >
+            Add Recipe
+          </Link>
         </div>
       </nav>
       <Header />
